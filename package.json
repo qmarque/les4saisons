@@ -9,15 +9,24 @@
   "source": "src/index.html",
   "scripts": {
     "build": "rimraf dist && parcel build",
-    "start": "parcel"
+    "start": "parcel",
+    "format": "prettier --write {*,src/**/*}.{js,json,md,html}",
+    "prepare": "husky install"
   },
   "dependencies": {
     "date-fns": "^2.28.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "rimraf": "^3.0.2"
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
-    "parcel": "^2.2.1"
+    "@parcel/reporter-bundle-analyzer": "^2.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": ">=10",
+    "parcel": "^2.3.0",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2"
+  },
+  "lint-staged": {
+    "{*,src/**/*}.{js,json,md,html}": "prettier --write"
   }
 }
